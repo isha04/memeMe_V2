@@ -185,20 +185,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         present(activity, animated: true, completion:nil)
     }
-    
-    func refreshTable(){
-        do{
-            images!.removeAll()
-            titles = try FileManager.default.contentsOfDirectory(atPath: imagesDirectoryPath)
-            for image in titles{
-                let data = FileManager.default.contents(atPath: (imagesDirectoryPath as NSString).appendingPathComponent("/\(image)"))
-                let image = UIImage(data: data!)
-                images.append(image!)
-            }
-            //self.tableView.reloadData()
-        }catch{
-            print("Error")
-        }
-    }
-
 }
